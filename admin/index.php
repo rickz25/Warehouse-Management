@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 session_start();
 
@@ -6,11 +6,9 @@ require_once '../php_action/db_connect.php';
 
 // echo $_SESSION['userId'];
 
-if(!$_SESSION['userId']) {
-	header('location: ../login.php');	
-} 
-
-
+if (!$_SESSION['userId']) {
+    header('location: ../login.php');
+}
 
 ?>
 <html>
@@ -20,7 +18,7 @@ if(!$_SESSION['userId']) {
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
 		<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-		<script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>		
+		<script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
 		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" href="./css/style1.css">
@@ -59,10 +57,10 @@ if(!$_SESSION['userId']) {
     </script>
 	<script>
 document.onkeydown = function(e) {
-        if (e.ctrlKey && 
-            (e.keyCode === 67 || 
-             e.keyCode === 86 || 
-             e.keyCode === 85 || 
+        if (e.ctrlKey &&
+            (e.keyCode === 67 ||
+             e.keyCode === 86 ||
+             e.keyCode === 85 ||
              e.keyCode === 117)) {
             return false;
         } else {
@@ -85,12 +83,12 @@ $(document).keydown(function(event){
     if(event.keyCode==123){
         return false;
     }
-    else if (event.ctrlKey && event.shiftKey && event.keyCode==73){        
+    else if (event.ctrlKey && event.shiftKey && event.keyCode==73){
              return false;
     }
 });
 
-$(document).on("contextmenu",function(e){        
+$(document).on("contextmenu",function(e){
    e.preventDefault();
 });
 
@@ -110,11 +108,7 @@ function isNumber(evt) {
 
 <script type="text/javascript">
 function validate(form) {
-  var re = /^[a-z,A-Z]+$/i;
-   if (!re.test(form.name.value)) {
-    alert('Please enter only letters from a to z');
-    return false;
-  }
+
   var re = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9]+(\.[a-z]{2,4})$/;
   if (!re.test(form.username.value)) {
     alert('Please enter the valid email');
@@ -132,7 +126,7 @@ function validate(form) {
   }
 }
 </script>
-	
+
 	</head>
 	<body>
 	 <header style="background-color:#6351CE;">
@@ -144,20 +138,20 @@ function validate(form) {
           <ul>
             <li><a href="../dashboard.php">Home</a></li>
             <li><a href="#" id="add_button" data-toggle="modal" data-target="#userModal" >Add User</a></li>
-			
+
 			 <li><a href="../logout.php" onclick="return confirm('Are you sure you want to logout?');">Sign out</a><p> </li>
 			 <li><?php echo htmlspecialchars($_SESSION['userId']); ?></p>	</li>
-            
+
           </ul>
         </nav>
       </div>
     </header>
-	
+
 		<div class="container box">
-				
+
 			<br />
 			<div class="table-responsive">
-		
+
 				<center><h1>User Information</h1></center>
 				<table id="user_data" class="table table-bordered table-striped">
 					<thead>
@@ -165,16 +159,16 @@ function validate(form) {
 							<th width="10%">Image</th>
 							<th width="15%">Name</th>
 							<th width="15%">Email</th>
-					<th width="15%">Account Type</th>
+							<th width="15%">Account Type</th>
 						    <th width="15%">Address</th>
-							<th width="15%">Contact</th>							
-							
+							<th width="15%">Contact</th>
+
 							<th width="10%">Edit</th>
 							<th width="10%">Delete</th>
 						</tr>
 					</thead>
 				</table>
-				
+
 			</div>
 		</div>
 	</body>
@@ -207,12 +201,12 @@ function validate(form) {
 					<br />
 
 					<label>Account type :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<input type="radio" style="width: 20px; height: 20px; color: blue; " name="account_type" value="manager" required> Manager &nbsp;&nbsp;&nbsp;
-					<input type="radio" style="width: 20px; height: 20px; color: blue;" name="account_type" value="dispatcher" required> Dispatcher &nbsp;&nbsp;&nbsp;
-					<input type="radio" style="width: 20px; height: 20px; color: blue;" name="account_type" value="supplier" required> Supplier &nbsp;&nbsp;&nbsp;
+					<input type="radio" style="width: 20px; height: 20px; color: blue; " name="account_type" id="account_type" value="manager" required> Manager &nbsp;&nbsp;&nbsp;
+					<input type="radio" style="width: 20px; height: 20px; color: blue;" name="account_type" id="account_type" value="dispatcher" required> Dispatcher &nbsp;&nbsp;&nbsp;
+					<input type="radio" style="width: 20px; height: 20px; color: blue;" name="account_type" id="account_type" value="supplier" required> Supplier &nbsp;&nbsp;&nbsp;
 					<br /><br />
 					<label>Select User Image</label>
-					<input type="file" name="user_image" id="user_image" required="" />
+					<input type="file" name="user_image" id="user_image" />
 					<span id="user_uploaded_image"></span>
 				</div>
 				<div class="modal-footer">
@@ -235,7 +229,7 @@ $(document).ready(function(){
 		$('#operation').val("Add");
 		$('#user_uploaded_image').html('');
 	});
-	
+
 	var dataTable = $('#user_data').DataTable({
 		"processing":true,
 		"serverSide":true,
@@ -258,7 +252,7 @@ $(document).ready(function(){
 		var name = $('#name').val();
 		var username = $('#username').val();
 			var password = $('#password').val();
-			
+
 			var address = $('#address').val();
 		var contact = $('#contact').val();
 		var account_type = $('#account_type').val();
@@ -271,7 +265,7 @@ $(document).ready(function(){
 				$('#user_image').val('');
 				return false;
 			}
-		}	
+		}
 		if(name != '' && username != '' && address != '' && contact != '' && account_type != '')
 		{
 			$.ajax({
@@ -294,7 +288,7 @@ $(document).ready(function(){
 			alert("Both Fields are Required");
 		}
 	});
-	
+
 	$(document).on('click', '.update', function(){
 		var user_id = $(this).attr("user_id");
 		$.ajax({
@@ -307,6 +301,7 @@ $(document).ready(function(){
 				$('#userModal').modal('show');
 				$('#name').val(data.name);
 				$('#username').val(data.username);
+				$('#password').val(data.password);
 				$('#address').val(data.address);
 				$('#contact').val(data.contact);
 				$('#account_type').val(data.account_type);
@@ -318,7 +313,7 @@ $(document).ready(function(){
 			}
 		})
 	});
-	
+
 	$(document).on('click', '.delete', function(){
 		var user_id = $(this).attr("user_id");
 		if(confirm("Are you sure you want to delete this?"))
@@ -336,10 +331,10 @@ $(document).ready(function(){
 		}
 		else
 		{
-			return false;	
+			return false;
 		}
 	});
-	
-	
+
+
 });
 </script>

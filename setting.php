@@ -1,6 +1,6 @@
-<?php require_once 'includes/header.php'; ?>
+<?php require_once 'includes/header.php';?>
 
-<?php 
+<?php
 $user_id = $_SESSION['userId'];
 $sql = "SELECT * FROM users WHERE user_id = {$user_id}";
 $query = $connect->query($sql);
@@ -20,7 +20,7 @@ body{
 <div class="row">
 	<div class="col-md-12">
 		<ol class="breadcrumb">
-		  <li><a href="dashboard.php">Home</a></li>		  
+		  <li><a href="dashboard.php">Home</a></li>
 		  <li class="active">Setting</li>
 		</ol>
 
@@ -31,13 +31,13 @@ body{
 
 			<div class="panel-body">
 
-				
+
 
 				<form action="php_action/changeUsername.php" method="post" class="form-horizontal" id="changeUsernameForm">
 					<fieldset>
 						<legend>Change Username</legend>
 
-						<div class="changeUsenrameMessages"></div>			
+						<div class="changeUsenrameMessages"></div>
 
 						<div class="form-group">
 					    <label for="username" class="col-sm-2 control-label">Username</label>
@@ -48,7 +48,7 @@ body{
 
 					  <div class="form-group">
 					    <div class="col-sm-offset-2 col-sm-10">
-					    	<input type="hidden" name="user_id" id="user_id" value="<?php echo $result['user_id'] ?>" /> 
+					    	<input type="hidden" name="user_id" id="user_id" value="<?php echo $result['user_id'] ?>" />
 					      <button type="submit" class="btn btn-success" data-loading-text="Loading..." id="changeUsernameBtn"> <i class="glyphicon glyphicon-ok-sign"></i> Save Changes </button>
 					    </div>
 					  </div>
@@ -84,9 +84,9 @@ body{
 
 					  <div class="form-group">
 					    <div class="col-sm-offset-2 col-sm-10">
-					    	<input type="hidden" name="user_id" id="user_id" value="<?php echo $result['user_id'] ?>" /> 
+					    	<input type="hidden" name="user_id" id="user_id" value="<?php echo $result['user_id'] ?>" />
 					      <button type="submit" class="btn btn-primary"> <i class="glyphicon glyphicon-ok-sign"></i> Save Changes </button>
-					      
+
 					    </div>
 					  </div>
 
@@ -94,14 +94,14 @@ body{
 					</fieldset>
 				</form>
 
-			</div> <!-- /panel-body -->		
+			</div> <!-- /panel-body -->
 
-		</div> <!-- /panel -->		
-	</div> <!-- /col-md-12 -->	
+		</div> <!-- /panel -->
+	</div> <!-- /col-md-12 -->
 </div> <!-- /row-->
 
 
 <script src="custom/js/setting.js"></script>
-<?php require_once 'includes/footer.php'; ?>
+<?php require_once 'includes/footer.php';?>
 </body>
 </html>

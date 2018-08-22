@@ -1,4 +1,14 @@
-<?php require_once 'php_action/core.php'; ?>
+<?php
+require_once 'php_action/db_connect.php';
+
+session_start();
+
+if (!isset($_SESSION['userId']) || empty($_SESSION['userId'])) {
+    header("location: login.php");
+    exit;
+}
+?>
+
 
 <!DOCTYPE html>
 <html>
@@ -25,7 +35,7 @@
 
   <!-- jquery -->
 	<script src="../assests/jquery/jquery.min.js"></script>
-  <!-- jquery ui -->  
+  <!-- jquery ui -->
   <link rel="stylesheet" href="../assests/jquery-ui/jquery-ui.min.css">
   <script src="../assests/jquery-ui/jquery-ui.min.js"></script>
 
@@ -69,30 +79,31 @@ width: auto;
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">      
-	
-      <ul class="nav navbar-nav navbar-right">        
-   
-      	<li id="navDashboard"><a href="dashboard.php"><i class="glyphicon glyphicon-list-alt"></i>  Dashboard</a></li>        
-        
-        <li id="navBrand"><a href="brand.php"><i ></i>  Supplier</a></li>        
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+      <ul class="nav navbar-nav navbar-right">
+
+      	<li id="navDashboard"><a href="dashboard.php"><i class="glyphicon glyphicon-list-alt"></i>  Dashboard</a></li>
+
+        <li id="navBrand"><a href="brand.php"><i ></i>  Supplier</a></li>
 
 
-        <li id="navProduct"><a href="product.php"> <i class="glyphicon glyphicon-ruble"></i> Product </a></li>    
-		<li id="topNavManageOrder"><a href="orders.php?o=manord"> <i class="glyphicon glyphicon-edit"></i> Delivery </a></li>  
+        <li id="navProduct"><a href="product.php"> <i class="glyphicon glyphicon-ruble"></i> Product </a></li>
+		<li id="topNavManageOrder"><a href="orders.php?o=manord"> <i class="glyphicon glyphicon-edit"></i> Delivery </a></li>
 
-      
+
 
         <li id="topNavAddOrder"><a href="report.php"> <i class="glyphicon glyphicon-check"></i> Report </a></li>
 
         <li class="dropdown" id="navSetting">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="glyphicon glyphicon-user"></i> <span class="caret"></span></a>
-          <ul class="dropdown-menu">            
-            <li id="topNavSetting"><a href="setting.php"> <i class="glyphicon glyphicon-wrench"></i> Setting</a></li>            
-            <li id="topNavLogout"><a href="logout.php" onclick="return confirm('Are you sure you want to logout?');"> <i class="glyphicon glyphicon-log-out"></i> Sign out</a></li>            
+          <ul class="dropdown-menu">
+            <li id="topNavSetting"><a href="#"><b><?php echo htmlspecialchars($_SESSION['userId']); ?></b>
+</a></li>
+            <li id="topNavLogout"><a href="logout.php" onclick="return confirm('Are you sure you want to logout?');"> <i class="glyphicon glyphicon-log-out"></i> Sign out</a></li>
           </ul>
-        </li>        
-               
+        </li>
+
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

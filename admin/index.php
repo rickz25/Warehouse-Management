@@ -201,9 +201,9 @@ function validate(form) {
 					<br />
 
 					<label>Account type :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<input type="radio" style="width: 20px; height: 20px; color: blue; " name="account_type" id="account_type" value="manager" required> Manager &nbsp;&nbsp;&nbsp;
-					<input type="radio" style="width: 20px; height: 20px; color: blue;" name="account_type" id="account_type" value="dispatcher" required> Dispatcher &nbsp;&nbsp;&nbsp;
-					<input type="radio" style="width: 20px; height: 20px; color: blue;" name="account_type" id="account_type" value="supplier" required> Supplier &nbsp;&nbsp;&nbsp;
+					<input type="radio" style="width: 20px; height: 20px; color: blue; " name="account_type" id="account_type" value="manager" > Manager &nbsp;&nbsp;&nbsp;
+					<input type="radio" style="width: 20px; height: 20px; color: blue;" name="account_type" id="account_type" value="dispatcher" > Dispatcher &nbsp;&nbsp;&nbsp;
+					<input type="radio" style="width: 20px; height: 20px; color: blue;" name="account_type" id="account_type" value="supplier" > Supplier &nbsp;&nbsp;&nbsp;
 					<br /><br />
 					<label>Select User Image</label>
 					<input type="file" name="user_image" id="user_image" />

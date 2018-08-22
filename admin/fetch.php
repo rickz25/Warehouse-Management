@@ -38,9 +38,9 @@ foreach ($result as $row) {
     $sub_array[] = $row["account_type"];
     $sub_array[] = $row["address"];
     $sub_array[] = $row["contact"];
-    $rr = $row["username"];
+    $rr = $row["account_type"];
 
-    if ($rr == 'rickzmorales25@gmail.com') {
+    if ($rr == 'admin') {
         $sub_array[] = '<button type="button" disabled="" name="update" user_id="' . $row["user_id"] . '" class="btn btn-warning btn-xs update">Update</button>';
         $sub_array[] = '<button type="button" disabled="" name="delete" user_id="' . $row["user_id"] . '" class="btn btn-danger btn-xs delete">Delete</button>';
     } else {
